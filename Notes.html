@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notes App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #58131c;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.input-wrapper {
+			display: flex;
+			flex-direction: column;
+			margin-right: 20px;
+		}
+
+		.input-wrapper label {
+			margin-bottom: 10px;
+			color: #fff;
+		}
+
+		.input-wrapper textarea {
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			margin-bottom: 20px;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+		}
+
+		.input-wrapper button {
+			padding: 10px 20px;
+			background-color: #808080;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.2s;
+		}
+
+		.input-wrapper button:hover {
+			background-color: #777777;
+		}
+
+		.notes-wrapper {
+			flex: 1;
+			
+		}
+		.notes-wrapper h2 {
+			flex: 1;
+			color: #fff;
+		}
+		.notes {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+			height: 300px;
+			overflow-y: auto;
+		}
+
+		.notes h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			
+		}
+
+		.note {
+			margin-bottom: 10px;
+			padding: 10px;
+			background-color: #f2f2f2;
+			border-radius: 5px;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+			word-wrap: break-word;
+		}
+
+        #home-button {
+  background-color: #808080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.2s;
+}
+
+#home-button:hover {
+  background-color: #777777;
+}
+#home-button {
+  /* existing button styles */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+		@media (max-width: 768px) {
+			.input-wrapper {
+				margin-right: 0;
+				margin-bottom: 20px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="container">
+    <a href="MainProjectPage.html"><button id="home-button">Home</button></a>
+	<div class="input-wrapper">
+		<label for="note-input">Enter a note:</label>
+		<textarea id="note-input" rows="8"></textarea>
+		<button id="save-button">Save</button>
+	</div>
+
+	<div class="notes-wrapper">
+		<h2>Saved Notes</h2>
+		<div class="notes"></div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#save-button').on('click', function() {
+			var note = $('#note-input').val();
+			if (note) {
+				$('.notes').append('<div class="note">' + note + '</div>');
+				$('#note-input').val('');
+			}
+		});
+	});
+</script>
+
+</body>
+</html>
