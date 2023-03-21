@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Notes App</title>
 	<meta charset="utf-8">
-	<title>Add Prospective Student</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="MainProjectPage.css">
@@ -28,15 +30,34 @@
 		</div>
 	</nav>
 </head>
-<body class="container-fluid" style="background-color: #58131c;">
-    <header>
-		<h1><font color="white">Add a Student</font></h1>
-	</header>
-    <font color="white">
-	First Name: <input type="text" id="fname">
-    Last Name: <input type="text" id="lname">
-    Major: <input type="text" id="major">
-    <input type="submit" value="Add Student">
-    </font>
+</head>
+<body style="background-color: #58131c;">
+
+<div class="container">
+	<div class="input-wrapper">
+		<label for="note-input">Enter a note:</label>
+		<textarea id="note-input" rows="8"></textarea>
+		<button id="save-button">Save</button>
+	</div>
+
+	<div class="notes-wrapper">
+		<h2>Saved Notes</h2>
+		<div class="notes"></div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+		$(document).ready(function() {
+		$('#save-button').on('click', function() {
+			var note = $('#note-input').val();
+			if (note) {
+				$('.notes').append('<div class="note">' + note + '</div>');
+				$('#note-input').val('');
+			}
+		});
+	});
+</script>
+
 </body>
 </html>
