@@ -1,0 +1,87 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #58131c;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.input-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-right: 20px;
+}
+
+.input-wrapper label {
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+.input-wrapper textarea {
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 20px;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+.input-wrapper button {
+	padding: 10px 20px;
+	background-color: #808080;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.2s;
+}
+
+.input-wrapper button:hover {
+	background-color: #777777;
+}
+
+.notes-wrapper {
+	flex: 1;
+	
+}
+.notes-wrapper h2 {
+	flex: 1;
+	color: #fff;
+}
+
+.notes {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	height: 300px;
+	overflow-y: auto;
+}
+
+.notes h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.note {
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+	.input-wrapper {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+}
