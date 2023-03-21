@@ -52,7 +52,8 @@
 		$('#save-button').on('click', function() {
 			var note = $('#note-input').val();
 			if (note) {
-				$('.notes').append('<div class="note">' + note + '</div>');
+				var timestamp = new Date().toLocaleString();
+				$('.notes').append('<div class="note">' + note + '<br><span class="timestamp">' + timestamp + '</span></div>');
 				$('#note-input').val('');
 			}
 		});
