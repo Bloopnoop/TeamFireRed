@@ -30,7 +30,6 @@
 		</div>
 	</nav>
 </head>
-</head>
 <body style="background-color: #58131c;">
 
 <div class="container">
@@ -48,14 +47,30 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-		$(document).ready(function() {
+	$(document).ready(function() {
+		// Retrieve saved notes from Local Storage
+		if(localStorage.getItem("notes")){
+			$('.notes').html(localStorage.getItem("notes"));
+		}
+		
+		// Save note to Local Storage and display
 		$('#save-button').on('click', function() {
 			var note = $('#note-input').val();
 			if (note) {
 				var timestamp = new Date().toLocaleString();
-				$('.notes').append('<div class="note">' + note + '<br><span class="timestamp">' + timestamp + '</span></div>');
+				$('.notes').append('<div class="note">' + note + '<br><span class="timestamp">' + timestamp + '</span><button class="delete-button">Delete</button></div>');
 				$('#note-input').val('');
+				// Save notes to Local Storage
+				localStorage.setItem("notes", $('.notes').html());
 			}
+		});
+		
+		// Add event listener to delete buttons
+		$('.notes').on('click', '.delete-button', function() {
+			// Remove note from DOM
+			$(this).closest('.note').remove();
+			// Remove note from local storage
+			localStorage.setItem("notes", $('.notes').html());
 		});
 	});
 </script>
