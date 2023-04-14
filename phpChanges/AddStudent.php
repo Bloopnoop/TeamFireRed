@@ -34,10 +34,12 @@
 	</header>
 	<form action="dbConnect.php" method="POST">
     <font color="white">
-	First Name: <input type="text" id="fname" name="Fname">
-    Last Name: <input type="text" id="lname" name="Lname">
-    Major: <input type="text" id="major" name="Major">
-	time: <input type="text" id="time" name="Time">
+	First Name: <input type="text" id="fname" name="Fname"><br><br>
+    Last Name: <input type="text" id="lname" name="Lname"><br><br>
+    Major: <input type="text" id="major" name="Major"><br><br>
+	Age: <input type="text" id="age" name="Age"><br><br>
+	High School Year: <input type="text" id="hsyear" name="HSYear"><br><br>
+	Time: <input type="text" id="time" name="Time"><br><br>
     <input type="submit" value="Add Student">
     </font>
 	</form>

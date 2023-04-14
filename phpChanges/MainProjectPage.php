@@ -80,6 +80,15 @@ $mysqli->close();
 		<input type="text" id="input">
 		<button type="button" class ="fa fa-search" id="search-button"></button> 
         <button type = "button" class ="fa fa-filter" id ="filter-button"></button>
+		<div id="filterMenu" class="filter-menu">
+			<ul><font color="white">
+				<li class="filter-item" data-filter="all">All</li>
+				<li class="filter-item" data-filter="category1">A-Z</li>
+				<li class="filter-item" data-filter="category2">Z-A</li>
+				<li class="filter-item" data-filter="category3">Date Created</li>
+				<li class="filter-item" data-filter="category4">Year</li>
+			</ul></font>
+		</div>
 	</div>
 	<div class="table-container">
 		<table class="table table-striped mb-0" style="background-color: white;">
@@ -99,10 +108,14 @@ $mysqli->close();
             ?>
             <tr>
                 <!-- FETCHING DATA FROM EACH ROW OF EVERY COLUMN -->
+				<form action="IndividualPage.php" method="POST">
                 <td><?php echo $rows['Fname'];?></td>
                 <td><?php echo $rows['Lname'];?></td>
                 <td><?php echo $rows['Major'];?></td>
                 <td><?php echo $rows['Time'];?></td>
+				<input type="hidden" name="Time" value=<?php echo $rows['Time']?>>
+				<td><input type="submit" value="Go To"></td>
+				</form>
             </tr>
             <?php
                 }
@@ -110,6 +123,23 @@ $mysqli->close();
 		</table>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+		$("#filter-button").on("click", function() {
+			$("#filterMenu").toggle();
+		});
+
+		$(".filter-item").on("click", function() {
+			var filter = $(this).data("filter");
+			// Apply filter logic based on selected option
+			// ...
+			// Hide filter menu
+			$("#filterMenu").hide();
+		});
+		});
+		
+		</script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 </body>
