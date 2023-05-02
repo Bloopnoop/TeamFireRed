@@ -32,7 +32,7 @@
         request.onsuccess = function(event) {
           const student = event.target.result;
           // update the student's name in the heading
-          document.getElementById('studentName').textContent = student.firstName + ' ' + student.lastName + '  |  ' + student.Major + '  |  ' + student.HSYear;
+          document.getElementById('studentName').textContent = student.firstName + ' ' + student.lastName + '  |  ' + student.Major + '  |  ' + student.HSYear + '  |  ' + student.dateSaved;
           // update the notes text area with the student's saved notes, if any
           if (student.notes) {
             document.getElementById('notes').value = student.notes;
