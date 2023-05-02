@@ -51,6 +51,20 @@ request.onsuccess = function(event) {
       const viewButton = document.createElement('button');
       viewButton.textContent = "View";
       viewButton.id = cursor.value.id;
+       const table = document.querySelector('#mainTable');
+  table.addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON') {
+      const studentId = event.target.id;
+      const transaction = db.transaction('myObjectStore', 'readonly');
+      const objectStore = transaction.objectStore('myObjectStore');
+      const request = objectStore.get(studentId);
+      request.onsuccess = function(event) {
+        const studentData = event.target.result;
+        // redirect to student info page
+        window.location.href = `Notes.html?id=${studentId}`;
+      };
+    }
+  });
       //populate the cells
       firstNameCell.textContent = cursor.value.firstName;
       lastNameCell.textContent = cursor.value.lastName      
