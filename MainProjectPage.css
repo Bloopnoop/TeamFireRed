@@ -6,19 +6,19 @@ Main Project Page CSS
 /* Style the sidebar - fixed full height */
 
 * {
-    margin: 3px;
-    padding: 3px;
+  margin: 3px;
+  padding: 3px;
 }
 
 sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    background-color: white;
-    padding: 20px;
-    overflow-y: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: white;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 /* Style sidebar links */
@@ -45,4 +45,20 @@ padding: 0px 10px;
 @media screen and (max-height: 450px) {
 .sidebar {padding-top: 15px;}
 .sidebar a {font-size: 18px;}
+}
+
+.filter-menu {
+  display: inline-block;
+  position: flex;
+  background: #818181;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.filter-item {
+  cursor: pointer;
+}
+
+.filter-item:hover {
+  background: #f0f0f0;
 }
